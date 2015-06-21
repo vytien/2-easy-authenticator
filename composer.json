@@ -1,0 +1,22 @@
+{
+    "name": "bernardino/easy-authenticator",
+    "description": "Makes authenticating users with your DB or Social networks a Breeze!",
+    "keywords": ["laravel", "oauth", "social", "socialite", "authentication"],
+    "require": {
+        "laravel/socialite": "~2.0",
+        "doctrine/dbal": "~2.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luca Bernardino",
+            "email": "bernardino.luca@gmail.com"
+        }
+    ],
+     "autoload": {
+        "psr-4": {
+            "Bernardino\\EasyAuthenticator\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
