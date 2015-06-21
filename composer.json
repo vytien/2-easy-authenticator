@@ -1,5 +1,5 @@
 {
-    "name": "bernardino/easy-authenticator",
+    "name": "seiryow/easy-authenticator",
     "description": "Makes authenticating users with your DB or Social networks a Breeze!",
     "keywords": ["laravel", "oauth", "social", "socialite", "authentication"],
     "require": {
@@ -9,8 +9,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Luca Bernardino",
-            "email": "bernardino.luca@gmail.com"
+            "name": "seiryow",
+            "email": "seiryow@gmail.com"
         }
     ],
      "autoload": {
