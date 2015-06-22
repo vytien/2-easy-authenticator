@@ -24,8 +24,8 @@ class Authentication extends AuthenticatorManager {
         if (!$request) return $this->getAuthorizationFirst($provider);
         $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider), $provider);
 
-        var_dump($user);
-        return;
+//         var_dump($user);
+//         return;
         if(!$user) {
             return redirect(config('easyAuthenticator.login_page'))->with('session', 'Email is already in use');
         }
@@ -37,9 +37,9 @@ class Authentication extends AuthenticatorManager {
             );
 
 //         var_dump($user);
-//         $this->auth->login($user, true);
+        $this->auth->login($user, true);
 
-//         return $this->userHasLoggedIn($user);
+        return $this->userHasLoggedIn($user);
     }
 
     private function getAuthorizationFirst($provider) {
