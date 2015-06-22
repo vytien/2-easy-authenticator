@@ -18,12 +18,12 @@ class UserRepository {
             return false;
         }
 
-        var_dump($userData);
-        return;
         if(!$user) {
             $user = User::create([
                 'provider_id' => $userData->id,
                 'provider' => $provider,
+                'token' => $userData->token,
+                'tokenSecret' => $userData->tokenSecret,
                 'name' => $userData->name,
                 'username' => $userData->nickname,
                 'email' => $userData->email,
@@ -35,16 +35,19 @@ class UserRepository {
     }
 
     public function checkIfUserNeedsUpdating($userData, $user) {
-
         $socialData = [
             'avatar' => $userData->avatar,
             'email' => $userData->email,
+            'token' => $userData->token,
+            'tokenSecret' => $userData->tokenSecret,
             'name' => $userData->name,
             'username' => $userData->nickname,
         ];
         $dbData = [
             'avatar' => $user->avatar,
             'email' => $user->email,
+            'token' => $user->token,
+            'tokenSecret' => $user->tokenSecret,
             'name' => $user->name,
             'username' => $user->username,
         ];
@@ -52,6 +55,8 @@ class UserRepository {
         if (!empty(array_diff($socialData, $dbData))) {
             $user->avatar = $userData->avatar;
             $user->email = $userData->email;
+            $user->token = $userData->token;
+            $user->tokenSecret = $userData->tokenSecret;
             $user->name = $userData->name;
             $user->username = $userData->nickname;
             $user->save();
